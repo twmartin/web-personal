@@ -1,0 +1,16 @@
+sudo: required
+
+language: go
+
+services:
+  - docker
+
+install:
+  - go get github.com/spf13/hugo
+
+script:
+  - hugo .
+  - docker build -t website-personal .
+  - docker run -d -p 80:8080 website-personal; sleep 10
+  - docker ps | grep website-personal
+  - curl -s -o /dev/null -I -w "%{http_code}" http://localhost:80/ | grep 200

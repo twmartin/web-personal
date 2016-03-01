@@ -1,0 +1,31 @@
+<div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+            <h2 class="brand-tagline">{{ with .Site.Params.description }} {{.}} {{end}}</h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                {{ with .Site.Params.githubName }}
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/{{ . }} " target="_blank"><i class="fa fa-github-alt"></i></a>
+                </li>
+                {{ end }}
+                {{ with .Site.Params.linkedinName }}
+                <li class="nav-item">
+                    <a class="pure-button" href="https://www.linkedin.com/in/{{ . }} " target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                </li>
+                {{ end }}
+                {{ with .Site.Params.twitterName }}
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/{{ . }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                </li>
+                {{ end }}
+                <li class="nav-item">
+                    <a class="pure-button" href="{{ "index.xml" | absURL }}"><i class="fa fa-rss"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

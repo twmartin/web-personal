@@ -1,0 +1,7 @@
+.git/
+content/
+themes/
+.gitignore
+.gitmodules
+.travis.yml
+config.toml

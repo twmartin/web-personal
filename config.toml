@@ -1,0 +1,10 @@
+baseurl = "http://www.twmartin.codes"
+languageCode = "en-us"
+title = "twmartin.codes"
+theme = "purehugo"
+
+[params]
+  linkedinName = "tywmartin"
+  twitterName = "tmart2011"
+  githubName = "twmartin"
+  description = "trials and tinkerings of technical thingies"
