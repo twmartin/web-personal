@@ -1,11 +1,26 @@
-baseurl = "http://www.twmartin.codes"
-languageCode = "en-us"
+baseurl = "https://twmartin.codes"
 title = "twmartin.codes"
-theme = "purehugo"
+theme = "hallo"
+
+[Author]
+  name = "Ty Martin"
+
+[params.colors]
+  background = "#4286f4"
+  foreground = "#edf7ff"
+  hover = "#000000"
 
 [params]
-  linkedinName = "tywmartin"
-  twitterName = "tmart2011"
-  githubName = "twmartin"
-  google_analytics = "UA-74494245-1"
-  description = "trials and tinkerings of technical thingies"
+  [[params.links]]
+    icon = "github"
+    title = "Github"
+    url = "https://github.com/twmartin"
+  
+  [[params.links]]
+    icon = "linkedin"
+    title = "LinkedIn"
+    url = "https://www.linkedin.com/in/tywmartin/"
+  [[params.links]]
+    icon = "docker"
+    title = "DockerHub"
+    url = "https://cloud.docker.com/u/tmart2011"
