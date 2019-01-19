@@ -1,9 +1,0 @@
-.git/
-content/
-layouts/
-themes/
-.gitignore
-.gitmodules
-.travis.yml
-config.toml
-README.md
