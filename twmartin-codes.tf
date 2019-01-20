@@ -12,7 +12,6 @@ provider "aws" {
 
 resource "aws_s3_bucket" "twmartin_codes_s3_bucket" {
   bucket = "twmartin.codes"
-  acl    = "public-read"
   website {
     index_document = "index.html"
   }
@@ -41,6 +40,24 @@ resource "aws_s3_bucket" "twmartin_codes_s3_bucket" {
   ]
 }
 EOF
+}
+
+resource "aws_s3_bucket" "www_twmartin_codes_s3_bucket" {
+  bucket = "www.twmartin.codes"
+  website {
+    redirect_all_requests_to = "https://twmartin.codes"
+  }
+  logging {
+    target_bucket = "twmartin-s3-access-logs-us-east-2"
+    target_prefix = "www.twmartin.codes"
+  }
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
 }
 
 resource "aws_iam_role" "codebuild_twmartin_codes_iam_role" {
