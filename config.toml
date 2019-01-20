@@ -1,4 +1,5 @@
 baseurl = "https://twmartin.codes"
+languageCode = "en-us"
 title = "twmartin.codes"
 theme = "hallo"
 
@@ -15,7 +16,7 @@ theme = "hallo"
     icon = "github"
     title = "Github"
     url = "https://github.com/twmartin"
-  
+
   [[params.links]]
     icon = "linkedin"
     title = "LinkedIn"
