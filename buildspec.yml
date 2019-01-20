@@ -17,11 +17,7 @@ phases:
     commands:
       - git submodule init
       - git submodule update --recursive
-      - hugo --debug
-      - ls -la
-      - ls -la themes
-      - ls -la themes/hallo
-      - ls -la public
+      - hugo --minify
   post_build:
     commands:
       - aws s3 sync --delete public s3://twmartin.codes
