@@ -16,11 +16,14 @@ theme = "hallo"
     icon = "github"
     title = "Github"
     url = "https://github.com/twmartin"
-
   [[params.links]]
     icon = "linkedin"
     title = "LinkedIn"
     url = "https://www.linkedin.com/in/tywmartin/"
+  [[params.links]]
+    icon = "twitter"
+    title = "Twitter"
+    url = "https://twitter.com/tmart2011"
   [[params.links]]
     icon = "docker"
     title = "DockerHub"
