@@ -2,6 +2,7 @@ baseurl = "https://twmartin.codes"
 languageCode = "en-us"
 title = "twmartin.codes"
 theme = "hallo"
+enableRobotsTXT = true
 
 [Author]
   name = "Ty Martin"
