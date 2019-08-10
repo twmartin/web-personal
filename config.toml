@@ -20,7 +20,7 @@ enableRobotsTXT = true
   [[params.links]]
     icon = "linkedin"
     title = "LinkedIn"
-    url = "https://www.linkedin.com/in/tywmartin/"
+    url = "https://linkedin.com/in/tywmartin/"
   [[params.links]]
     icon = "twitter"
     title = "Twitter"
