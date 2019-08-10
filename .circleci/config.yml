@@ -1,0 +1,21 @@
+---
+version: 2
+
+jobs:
+  yamllint:
+    docker:
+      - image: 'circleci/python:3.7'
+    steps:
+      - 'checkout'
+      - run:
+          name: 'install yamllint'
+          command: 'sudo pip install yamllint'
+      - run:
+          name: 'run yamllint'
+          command: 'yamllint ./ .yamllint'
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - 'yamllint'
