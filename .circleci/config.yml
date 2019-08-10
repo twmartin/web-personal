@@ -12,7 +12,7 @@ jobs:
           command: 'sudo pip install yamllint'
       - run:
           name: 'run yamllint'
-          command: 'yamllint ./ ./yamllint'
+          command: 'yamllint ./ .yamllint'
 
 workflows:
   version: 2
