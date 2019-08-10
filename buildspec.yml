@@ -15,7 +15,7 @@ phases:
       - 'echo "${HUGO_SHA256}  hugo_${HUGO_VERSION}_Linux-64bit.deb" | sha256sum -c -'
       - 'sudo dpkg -i hugo_${HUGO_VERSION}_Linux-64bit.deb'
     finally:
-      - 'hugo verion'
+      - 'hugo version'
   build:
     commands:
       - 'git submodule init'
