@@ -2,6 +2,15 @@
 version: 2
 
 jobs:
+  tflint:
+    docker:
+      - image: 'wata727/tflint'
+    steps:
+      - 'checkout'
+      - run:
+          name: 'run tflint'
+          command: 'tflint'
+
   yamllint:
     docker:
       - image: 'circleci/python:3.7'
@@ -18,4 +27,5 @@ workflows:
   version: 2
   continuous_integration:
     jobs:
+      - 'tflint'
       - 'yamllint'
