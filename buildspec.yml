@@ -4,16 +4,12 @@ version: '0.1'
 environment_variables:
   plaintext:
     AWS_DEFAULT_REGION: 'us-east-2'
-    HUGO_VERSION: '0.56.3'
-    HUGO_SHA256: >-
-      4c8129b6f013d6b66c48446c681da8be20dfc504e5119c9f28a0b7115b9cb53e
 
 phases:
   install:
     commands:
-      - 'wget --quiet https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb'
-      - 'echo "${HUGO_SHA256}  hugo_extended_${HUGO_VERSION}_Linux-64bit.deb" | sha256sum -c -'
-      - 'sudo dpkg -i hugo_extended_${HUGO_VERSION}_Linux-64bit.deb'
+      - 'sugo apt-get update'
+      - 'sudo apt-get install hugo'
     finally:
       - 'hugo version'
   build:
