@@ -1,23 +1,25 @@
-version: 0.1
+---
+version: '0.1'
 
 environment_variables:
   plaintext:
-    AWS_DEFAULT_REGION: "us-east-2"
-    HUGO_VERSION: "0.53"
-    HUGO_SHA256: "0e4424c90ce5c7a0c0f7ad24a558dd0c2f1500256023f6e3c0004f57a20ee119"
+    AWS_DEFAULT_REGION: 'us-east-2'
+    HUGO_VERSION: '0.53'
+    HUGO_SHA256: >-
+      '0e4424c90ce5c7a0c0f7ad24a558dd0c2f1500256023f6e3c0004f57a20ee119'
 
 phases:
   install:
     commands:
-      - curl -Ls https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -o /tmp/hugo.tar.gz
-      - echo "${HUGO_SHA256}  /tmp/hugo.tar.gz" | sha256sum -c -
-      - tar -xvzf /tmp/hugo.tar.gz -C /tmp
-      - mv /tmp/hugo /usr/bin/hugo
+      - 'curl -Ls https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -o /tmp/hugo.tar.gz'
+      - 'echo "${HUGO_SHA256}  /tmp/hugo.tar.gz" | sha256sum -c -'
+      - 'tar -xvzf /tmp/hugo.tar.gz -C /tmp'
+      - 'mv /tmp/hugo /usr/bin/hugo'
   build:
     commands:
-      - git submodule init
-      - git submodule update --recursive
-      - hugo --minify
+      - 'git submodule init'
+      - 'git submodule update --recursive'
+      - 'hugo --minify'
   post_build:
     commands:
-      - aws s3 sync --delete public s3://twmartin.codes
+      - 'aws s3 sync --delete public s3://twmartin.codes'
