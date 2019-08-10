@@ -28,4 +28,4 @@ enableRobotsTXT = true
   [[params.links]]
     icon = "docker"
     title = "DockerHub"
-    url = "https://cloud.docker.com/u/tmart2011"
+    url = "https://hub.docker.com/u/tmart2011"
