@@ -8,7 +8,7 @@ environment_variables:
 phases:
   install:
     commands:
-      - 'sugo apt-get update'
+      - 'sudo apt-get update'
       - 'sudo apt-get install hugo'
     finally:
       - 'hugo version'
