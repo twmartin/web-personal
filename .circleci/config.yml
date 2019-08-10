@@ -2,6 +2,36 @@
 version: 2
 
 jobs:
+  htmlproofer:
+    docker:
+      - image: 'cibuilds/hugo:latest'
+    working_directory: '~/hugo'
+    environment:
+      HUGO_BUILD_DIR: '~/hugo/public'
+    steps:
+      - run: 'apk update && apk add git'
+      - 'checkout'
+      - run: 'git submodule sync && git submodule update --init'
+      - run: 'hugo -v --minify -d $HUGO_BUILD_DIR'
+      - run:
+          name: 'run htmlproofer'
+          command: >-
+            htmlproofer $HUGO_BUILD_DIR
+            --check-favicon --check-html --check-img-http --check-opengraph
+            --enforce-https --http-status-ignore 999
+
+  markdownlint:
+    docker:
+      - image: 'circleci/ruby:2.6.3'
+    steps:
+      - 'checkout'
+      - run:
+          name: 'install mdl'
+          command: 'gem install mdl'
+      - run:
+          name: 'run mdl'
+          command: 'mdl -r ~MD013 README.md'
+
   tflint:
     docker:
       - image: 'wata727/tflint'
@@ -27,5 +57,7 @@ workflows:
   version: 2
   continuous_integration:
     jobs:
+      - 'htmlproofer'
+      - 'markdownlint'
       - 'tflint'
       - 'yamllint'
