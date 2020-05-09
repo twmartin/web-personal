@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "twmartin.codes"
 theme = "hallo"
 enableRobotsTXT = true
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [Author]
   name = "Ty Martin"
@@ -28,3 +29,15 @@ enableRobotsTXT = true
     icon = "docker"
     title = "DockerHub"
     url = "https://hub.docker.com/u/tmart2011"
+
+[server]
+  [[server.headers]]
+    for = "/**.html"
+    [server.headers.values]
+      Content-Security-Policy = "default-src 'self'; style-src 'self' fonts.googleapis.com use.fontawesome.com; font-src 'self' fonts.gstatic.com use.fontawesome.com; script-src 'self' https://www.google-analytics.com https://ajax.cloudflare.com https://static.cloudflareinsights.com; img-src 'self' https://www.google-analytics.com; upgrade-insecure-requests; report-uri https://twmartincodes.report-uri.com/r/d/csp/enforce;"
+      Feature-Policy = "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+      Referrer-Policy = "strict-origin-when-cross-origin"
+      Strict-Transport-Security = "max-age=31536000"
+      X-Content-Type-Options = "nosniff"
+      X-Frame-Options = "DENY"
+      X-Xss-Protection = "1; mode=block;"
