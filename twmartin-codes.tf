@@ -151,7 +151,7 @@ resource "aws_codebuild_project" "codebuild_twmartin_codes" {
   }
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image = "aws/codebuild/standard:1.0"
+    image = "aws/codebuild/standard:4.0"
     type = "LINUX_CONTAINER"
   }
   source {
