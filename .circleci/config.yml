@@ -4,11 +4,11 @@ version: 2
 jobs:
   htmlproofer:
     docker:
-      - image: 'cibuilds/hugo:0.70'
+      - image: 'cibuilds/hugo:0.70.0'
     environment:
       HUGO_BUILD_DIR: 'public'
     steps:
-      - run: 'apt-get update && apt-get install -y --no-install-recommends git'
+      - run: 'sudo apt-get update && sudo apt-get install -y --no-install-recommends git'
       - 'checkout'
       - run: 'git submodule sync && git submodule update --init'
       - run: 'hugo -v --minify -d $HUGO_BUILD_DIR'
