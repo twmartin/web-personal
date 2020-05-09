@@ -106,7 +106,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "codebuild_twmartin_codes_iam_policy" {
-  role = "${aws_iam_role.codebuild_twmartin_codes_iam_role.name}"
+  role = aws_iam_role.codebuild_twmartin_codes_iam_role.name
 
   policy = <<POLICY
 {
@@ -145,7 +145,7 @@ resource "aws_codebuild_project" "codebuild_twmartin_codes" {
   description = "Builds twmartin.codes and pushes to s3"
   badge_enabled = true
   build_timeout = "5"
-  service_role = "${aws_iam_role.codebuild_twmartin_codes_iam_role.arn}"
+  service_role = aws_iam_role.codebuild_twmartin_codes_iam_role.arn
   artifacts {
     type = "NO_ARTIFACTS"
   }
