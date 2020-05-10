@@ -160,3 +160,19 @@ resource "aws_codebuild_project" "codebuild_twmartin_codes" {
     git_clone_depth = 1
   }
 }
+
+provider "cloudflare" {
+  version = "~> 2.0"
+}
+
+# Sets the script with the name "script_1"
+resource "cloudflare_worker_script" "http_headers_workers_script" {
+  name = "http-headers"
+  content = file("http-headers-workers-script.js")
+}
+
+resource "cloudflare_worker_route" "twmartin_codes_http_headers_route" {
+  zone_id = "ec1a60c135b8f65669669e4223132c8f"
+  pattern = "twmartin.codes/*"
+  script_name = cloudflare_worker_script.http_headers_workers_script.name
+}
