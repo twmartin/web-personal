@@ -8,12 +8,11 @@ environment_variables:
     HUGO_SHA256: >-
       7383dd9e665e776d7080eeb52cf421871e582bb166bba66679c9e0ce259a055d
     HUGO_DOWNLOADS: 'https://github.com/gohugoio/hugo/releases/download'
-    HUGO_DOWNLOAD: '${HUGO_DOWNLOADS}/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb'
 
 phases:
   install:
     commands:
-      - 'wget --quiet ${HUGO_DOWNLOAD}'
+      - 'wget --quiet ${HUGO_DOWNLOADS}/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb'
       - 'echo "${HUGO_SHA256}  hugo_extended_${HUGO_VERSION}_Linux-64bit.deb" | sha256sum -c -'
       - 'dpkg -i hugo_extended_${HUGO_VERSION}_Linux-64bit.deb'
     finally:
