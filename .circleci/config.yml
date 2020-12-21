@@ -21,7 +21,7 @@ jobs:
 
   markdownlint:
     docker:
-      - image: 'circleci/ruby:2.7.1-buster'
+      - image: 'circleci/ruby:2.7.2-buster'
     steps:
       - 'checkout'
       - run:
@@ -33,7 +33,7 @@ jobs:
 
   tflint:
     docker:
-      - image: 'wata727/tflint:0.15.5'
+      - image: 'wata727/tflint:0.22.0'
     steps:
       - 'checkout'
       - run:
