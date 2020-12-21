@@ -1,8 +1,20 @@
 terraform {
   backend "s3" {
     bucket = "twmartin-terraform-backend"
-    key = "twmartin-codes.tfstate"
+    key    = "twmartin-codes.tfstate"
     region = "us-east-2"
+  }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.0"
+    }
   }
 }
 
@@ -88,7 +100,7 @@ resource "aws_s3_bucket" "www_twmartin_codes_s3_bucket" {
 }
 
 resource "aws_iam_role" "codebuild_twmartin_codes_iam_role" {
-  name = "codebuild-twmartin.codes-iam-role"
+  name               = "codebuild-twmartin.codes-iam-role"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -141,38 +153,34 @@ POLICY
 }
 
 resource "aws_codebuild_project" "codebuild_twmartin_codes" {
-  name = "twmartin_codes"
-  description = "Builds twmartin.codes and pushes to s3"
+  name          = "twmartin_codes"
+  description   = "Builds twmartin.codes and pushes to s3"
   badge_enabled = true
   build_timeout = "5"
-  service_role = aws_iam_role.codebuild_twmartin_codes_iam_role.arn
+  service_role  = aws_iam_role.codebuild_twmartin_codes_iam_role.arn
   artifacts {
     type = "NO_ARTIFACTS"
   }
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image = "aws/codebuild/standard:4.0"
-    type = "LINUX_CONTAINER"
+    image        = "aws/codebuild/standard:4.0"
+    type         = "LINUX_CONTAINER"
   }
   source {
-    type = "GITHUB"
-    location = "https://github.com/twmartin/web-personal.git"
+    type            = "GITHUB"
+    location        = "https://github.com/twmartin/web-personal.git"
     git_clone_depth = 1
   }
 }
 
-provider "cloudflare" {
-  version = "~> 2.0"
-}
-
 # Sets the script with the name "script_1"
 resource "cloudflare_worker_script" "http_headers_workers_script" {
-  name = "http-headers"
+  name    = "http-headers"
   content = file("http-headers-workers-script.js")
 }
 
 resource "cloudflare_worker_route" "twmartin_codes_http_headers_route" {
-  zone_id = "ec1a60c135b8f65669669e4223132c8f"
-  pattern = "twmartin.codes/*"
+  zone_id     = "ec1a60c135b8f65669669e4223132c8f"
+  pattern     = "twmartin.codes/*"
   script_name = cloudflare_worker_script.http_headers_workers_script.name
 }
