@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "twmartin.codes"
 theme = "hallo"
 enableRobotsTXT = true
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomy"]
 
 [Author]
   name = "Ty Martin"
