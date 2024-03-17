@@ -1,19 +1,19 @@
 ---
-extends: 'default'
+extends: default
 
 ignore: |
   themes/
 
 rules:
   comments:
-    level: 'error'
+    level: error
   comments-indentation:
-    level: 'error'
+    level: error
   document-start:
-    level: 'error'
+    level: error
   line-length:
     max: 125
-    level: 'warning'
+    level: error
   truthy:
     check-keys: false
-    level: 'error'
+    level: error
