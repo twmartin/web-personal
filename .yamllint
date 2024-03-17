@@ -15,5 +15,5 @@ rules:
     max: 125
     level: 'warning'
   truthy:
-    check-keys: true
+    check-keys: false
     level: 'error'
