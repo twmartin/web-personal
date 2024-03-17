@@ -15,6 +15,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+      - name: setup-hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.54.0'
+      - name: hugo-build
+        run: hugo --minify
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - name: install-htmlproofer
+        run: gem install html-proofer==5.0.8
 
   markdownlint:
     runs-on: ubuntu-latest
