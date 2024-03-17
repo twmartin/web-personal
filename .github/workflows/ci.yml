@@ -28,7 +28,7 @@ jobs:
         with:
           ruby-version: '3.3'
       - name: install-htmlproofer
-        run: gem install html-proofer==5.0.8
+        run: gem install html-proofer -v 5.0.8
       - name: run-htmlproofer
         run: |
           htmlproofer $HUGO_BUILD_DIR
