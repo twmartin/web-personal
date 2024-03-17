@@ -21,14 +21,6 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     icon = "linkedin"
     title = "LinkedIn"
     url = "https://linkedin.com/in/tywmartin/"
-  [[params.links]]
-    icon = "twitter"
-    title = "Twitter"
-    url = "https://twitter.com/tmart2011"
-  [[params.links]]
-    icon = "docker"
-    title = "DockerHub"
-    url = "https://hub.docker.com/u/tmart2011"
 
 [server]
   [[server.headers]]
