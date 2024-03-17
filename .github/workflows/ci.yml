@@ -31,7 +31,7 @@ jobs:
         run: gem install html-proofer -v 5.0.8
       - name: run-htmlproofer
         run: |
-          htmlproofer $HUGO_BUILD_DIR
+          htmlproofer public/
             --check-favicon --check-html --check-img-http --check-opengraph
             --enforce-https --http-status-ignore 999 --url-ignore "https://twitter.com/tmart2011"
 
