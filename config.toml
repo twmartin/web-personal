@@ -5,10 +5,8 @@ theme = "hallo"
 enableRobotsTXT = true
 disableKinds = ["taxonomy"]
 
-[Author]
-  name = "Ty Martin"
-
 [params]
+  author = "Ty Martin"
   [params.colors]
     background = "#4286f4"
     foreground = "#edf7ff"
