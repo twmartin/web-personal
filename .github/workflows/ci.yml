@@ -19,9 +19,9 @@ jobs:
           submodules: true
           fetch-depth: 0
       - name: setup-hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.54.0'
+          hugo-version: '0.157.0'
       - name: hugo-build
         run: hugo --minify
       - uses: ruby/setup-ruby@v1
