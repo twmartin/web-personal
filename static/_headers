@@ -4,6 +4,6 @@
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
   Referrer-Policy: strict-origin-when-cross-origin
   Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://twmartincodes.report-uri.com/a/d/g"}],"include_subdomains":true}
-  Strict-Transport-Security: max-age=31536000
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
