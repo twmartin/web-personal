@@ -5,10 +5,8 @@ theme = "hallo"
 enableRobotsTXT = true
 disableKinds = ["taxonomy"]
 
-[Author]
-  name = "Ty Martin"
-
 [params]
+  author = "Ty Martin"
   [params.colors]
     background = "#4286f4"
     foreground = "#edf7ff"
@@ -26,10 +24,9 @@ disableKinds = ["taxonomy"]
   [[server.headers]]
     for = "/**.html"
     [server.headers.values]
-      Content-Security-Policy = "default-src 'self'; style-src 'self' fonts.googleapis.com use.fontawesome.com; font-src 'self' fonts.gstatic.com use.fontawesome.com; script-src 'self' https://www.google-analytics.com https://ajax.cloudflare.com https://static.cloudflareinsights.com; img-src 'self' https://www.google-analytics.com; upgrade-insecure-requests; report-uri https://twmartincodes.report-uri.com/r/d/csp/enforce;"
+      Content-Security-Policy = "default-src 'self'; style-src 'self' fonts.googleapis.com use.fontawesome.com; font-src 'self' fonts.gstatic.com use.fontawesome.com; script-src 'self' https://ajax.cloudflare.com https://static.cloudflareinsights.com; img-src 'self'; upgrade-insecure-requests; report-uri https://twmartincodes.report-uri.com/r/d/csp/enforce;"
       Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
       Referrer-Policy = "strict-origin-when-cross-origin"
-      Strict-Transport-Security = "max-age=31536000"
+      Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
       X-Content-Type-Options = "nosniff"
       X-Frame-Options = "DENY"
-      X-Xss-Protection = "1; mode=block;"
